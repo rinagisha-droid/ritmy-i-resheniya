@@ -183,6 +183,17 @@ body::before{inset:0!important;background-image:linear-gradient(90deg,#041c18b9 
 .rightstack .panel-title .roundbtn,.rightstack .panel-title .softbtn{margin-left:auto!important}
 .rightstack .roundbtn,.rightstack .softbtn{flex:0 0 auto;min-width:24px;padding:4px 6px}
 .rightstack .panel{padding-left:8px;padding-right:8px}
+.route.current strong,.route.current .rdesc{color:#173d32!important;text-shadow:none!important}
+.route[data-route="life"] strong,.route[data-route="life"] .rdesc{color:#173d32!important;text-shadow:none!important}
+@media(min-width:1101px) and (max-width:1350px){
+.board{grid-template-columns:repeat(2,minmax(0,1fr)) minmax(215px,.9fr)!important;gap:10px!important}
+.board > [data-scope].visible{grid-column:span 1!important;min-height:225px!important}
+.board > .rightstack{grid-column:3!important;grid-row:1 / span 2!important;display:flex!important;flex-direction:column!important;width:100%!important}
+.rightstack .panel{width:100%!important;min-height:0!important;padding:10px!important}
+.panel-title h3{font-size:16px!important}
+.profession-panel .feature-visual p{font-size:16px!important}
+}
+
 </style></head><body>
 <button id="mobileMenu" class="mobile-menu" aria-label="Открыть меню">☰</button>
 <div class="app">
