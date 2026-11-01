@@ -317,7 +317,51 @@ body::before{content:""!important;display:block!important;position:fixed!importa
 .profession-panel .feature-visual{background:radial-gradient(circle at 10% 0%,#ffe1a3,transparent 52%),linear-gradient(145deg,#faf1da,#e4ede6)!important}
 .money-panel .feature-visual{background:radial-gradient(circle at 95% 90%,#d4e7c7,transparent 52%),linear-gradient(145deg,#f8edce,#f3e2b9)!important}
 @media(max-width:700px){.brandhead .year-feature{width:78px;height:64px;font-size:31px!important;letter-spacing:-1px;left:9px!important}.brandhead>div:nth-child(2){margin-left:89px}.routes .route img,.routes .route .compass-illustration{width:84px!important;flex-basis:84px!important;height:65px!important}.compass-ring{width:51px;border-width:3px}.compass-needle{font-size:33px}}
-</style></head><body>
+</style><style id="visual-refinement-nov-1">
+/* Nov 1: cinematic horizontal header, illustrated working cards */
+@media(min-width:950px){
+.brandhead{min-height:103px!important;height:103px!important;padding:9px 24px 9px 164px!important;display:flex!important;align-items:center!important;justify-content:center!important;border-radius:18px!important;background-position:center 47%!important}
+.brandhead .year-feature{left:20px!important;top:50%!important;width:138px!important;height:82px!important;font-size:55px!important}
+.brandhead>div:nth-child(2){margin:0!important;text-align:center!important}
+.brandhead h1{font-size:clamp(32px,3.2vw,48px)!important;white-space:nowrap!important}
+.brandhead .sub{font-size:14px!important}
+.routes{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;margin-top:4px!important}
+.routes .route{height:104px!important;min-height:104px!important;padding:8px 12px!important;gap:12px!important;min-width:0!important;overflow:hidden!important}
+.routes .route img,.routes .route .compass-illustration{height:88px!important;width:91px!important;flex:0 0 91px!important;max-width:none!important;object-fit:cover!important;padding:0!important}
+.routes .route .rtxt{min-width:0!important;overflow:visible!important}
+.routes .route strong{font-size:clamp(17px,1.65vw,24px)!important;line-height:1.08!important}
+.routes .route .rdesc{font-size:12px!important;line-height:1.22!important}
+.routes .route .arrow{flex:0 0 34px!important}
+}
+.routes .route{isolation:isolate!important}
+.routes .route img{object-fit:cover!important;object-position:center!important;filter:saturate(1.16) contrast(1.06)!important}
+.routes .route .compass-illustration{overflow:hidden!important;border:1px solid #d8a95f!important;position:relative!important;background:radial-gradient(circle at 50% 46%,#785a29 0%,#172e28 55%,#061b19 90%)!important}
+.routes .route .compass-ring{width:72px!important;height:72px!important;max-width:90%!important;max-height:90%!important;box-sizing:border-box!important;border:4px double #ffdc91!important;background:radial-gradient(circle,#caa04e 0 5%,#173d37 8% 49%,#ba8842 50% 52%,#0b302e 54%)!important;box-shadow:0 0 0 2px #73572d,0 0 18px #f7bf6659,inset 0 0 14px #0008!important}
+.routes .route .compass-needle{font-size:45px!important}
+.board .feature-visual{min-height:112px!important;display:flex!important;align-items:center!important;justify-content:center!important;isolation:isolate!important;background-image:linear-gradient(90deg,rgba(255,246,224,.90),rgba(255,246,224,.83)),var(--scene-photo)!important;background-size:cover!important;background-position:center!important}
+.board .feature-visual::after{content:"";position:absolute;inset:0;z-index:-1;background:var(--scene-photo);background-size:cover;background-position:center;opacity:.38;filter:saturate(1.13) contrast(1.08);pointer-events:none}
+.board .feature-visual>span{flex:0 0 38px!important;font-size:34px!important}
+.board .feature-visual>p{color:#183d35!important;font-weight:600!important;text-shadow:0 1px 3px #fff8e9!important}
+@media(max-width:950px){.board .feature-visual{min-height:100px!important}}
+</style><script id="illustrated-panels-nov-1">
+(function(){
+function applyPhotos(){
+ var scenes=[...document.querySelectorAll('.scene[src^="data:image/"]')];
+ var routePictures=[...document.querySelectorAll('.routes .route img[src^="data:image/"]')];
+ var pictures=[...scenes,...routePictures];
+ if(!pictures.length)return;
+ var selectors=['.money-panel .feature-visual','.decisions-panel .feature-visual','.profession-panel .feature-visual','.visual-joy','.visual-mood','.visual-care'];
+ selectors.forEach(function(sel,i){
+  var el=document.querySelector(sel);
+  if(!el)return;
+  var pic=pictures[(i+1)%pictures.length];
+  el.style.setProperty('--scene-photo','url("'+pic.src+'")');
+  el.classList.add('has-real-photo');
+ });
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',applyPhotos);else applyPhotos();
+})();
+</script></head><body>
 <button id="mobileMenu" class="mobile-menu" aria-label="Открыть меню">☰</button>
 <div class="app">
  <div class="brandhead"><div class="quote year-feature" aria-label="2026 год">2026</div><div><h1>Ритмы и решения</h1><div class="sub"><span class="spark">✦</span> Маленькое волшебство каждого дня <span class="spark">✦</span></div></div><div class="quote right">Больше, чем календарь —<br>это время для себя ♡</div></div>
